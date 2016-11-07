@@ -66,4 +66,4 @@ Using conda
     conda install appveyor-client -c conda-forge
 
     
-RANDOM TEXT TO TEST CI TO
+RANDOM TEXT TO TEST CI
