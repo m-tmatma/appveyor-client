@@ -4,12 +4,11 @@ language: c
 
 sudo: false
 
-branches:
-  only:
-    - master
-
 os:
   - osx
+
+before_install:
+    - pip install pep8
 
 env:
   global:
