@@ -1,6 +1,6 @@
 # https://travis-ci.org/goanpeca/appveyor-client
 
-language: c
+language: python
 
 sudo: false
 
