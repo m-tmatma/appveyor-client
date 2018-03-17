@@ -64,26 +64,30 @@ class AppveyorClient(object):
     def _parse_response_contents(response):
         """Parse response and convert to json if possible."""
         status_code = response.status_code
-        try:
-            if status_code == 200:
-                contents = response.json()
-            else:
-                contents = {}
-        except:
-            error = response.text.strip()
-            if not error:
-                error_msg = textwrap.dedent('''
-                    Unexpected error
-                        Possible reasons are:
-                         - Communication with Appveyor has failed.
-                         - Insufficient permissions.
-                         - Invalid contents returned.
-                    ''')[1:]
-            contents = {
-                'status_code': status_code,
-                'error': error_msg,
-            }
-            raise AppveyorError(contents)
+        #try:
+        #    if status_code == 200:
+        #        contents = response.json()
+        #    else:
+        #        contents = {}
+        #except:
+        #    error = response.text.strip()
+        #    if not error:
+        #        error_msg = textwrap.dedent('''
+        #            Unexpected error
+        #                Possible reasons are:
+        #                 - Communication with Appveyor has failed.
+        #                 - Insufficient permissions.
+        #                 - Invalid contents returned.
+        #            ''')[1:]
+        #    contents = {
+        #        'status_code': status_code,
+        #        'error': error_msg,
+        #    }
+        #    raise AppveyorError(contents)
+        if status_code == 200:
+            contents = response.json()
+        else:
+            contents = {}
 
         if status_code == 200:
             return contents
