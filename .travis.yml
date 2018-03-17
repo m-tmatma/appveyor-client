@@ -1,12 +1,8 @@
 # https://travis-ci.org/goanpeca/appveyor-client
 
 language: python
-python:
-  - "2.7"
-  - "3.4"
-  - "3.5"
 
-sudo: false
+sudo: required
 
 os:
   - osx
@@ -19,10 +15,14 @@ env:
     # Environment variables used by astropy helpers
     - CONDA_DEPENDENCIES: "requests"
 
-  matrix:
-    - TRAVIS_PYTHON_VERSION=3.5
-    - TRAVIS_PYTHON_VERSION=3.4
-    - TRAVIS_PYTHON_VERSION=2.7
+matrix:
+  include:
+    - python: 3.5
+      env: TRAVIS_PYTHON_VERSION="3.5"
+    - python: 3.4
+      env: TRAVIS_PYTHON_VERSION="3.4"
+    - python: 2.7
+      env: TRAVIS_PYTHON_VERSION="2.7"
 
 install:
   # Use Astropy ci helpers for initial setup
