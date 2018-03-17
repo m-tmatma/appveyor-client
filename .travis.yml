@@ -4,8 +4,8 @@ language: python
 
 sudo: required
 
-os:
-  - osx
+#os:
+#  - osx
 
 before_install:
     - pip install pep8
@@ -17,12 +17,13 @@ env:
 
 matrix:
   include:
-    - python: 3.5
-      env: TRAVIS_PYTHON_VERSION="3.5"
-    - python: 3.4
-      env: TRAVIS_PYTHON_VERSION="3.4"
-    - python: 2.7
-      env: TRAVIS_PYTHON_VERSION="2.7"
+    - os: linux
+      - python: 3.5
+        env: TRAVIS_PYTHON_VERSION="3.5"
+      - python: 3.4
+        env: TRAVIS_PYTHON_VERSION="3.4"
+      - python: 2.7
+        env: TRAVIS_PYTHON_VERSION="2.7"
 
 install:
   # Use Astropy ci helpers for initial setup
