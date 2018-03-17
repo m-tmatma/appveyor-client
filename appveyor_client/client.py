@@ -311,7 +311,9 @@ class Roles(_Base):
         https://www.appveyor.com/docs/api/team/#add-role
         """
         method_url = 'POST /api/roles'
-        data = {"name": name, }
+        data = {
+            "name": name,
+        }
         body = json.dumps(data)
         return self._client._request(method_url, body=body)
 
